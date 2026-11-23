@@ -1,0 +1,111 @@
+/* Distribución responsive con CSS puro, sin Bootstrap. */
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+}
+.container-fluid { width: 100%; }
+.row { display: flex; flex-wrap: wrap; }
+.col-6 { width: 50%; }
+.col-12 { width: 100%; }
+@media (min-width: 768px) {
+    .col-md-3 { width: 25%; }
+    .col-md-4 { width: 33.333333%; }
+    .col-md-6 { width: 50%; }
+    .col-md-8 { width: 66.666667%; }
+    .col-md-9 { width: 75%; }
+    .col-md-12 { width: 100%; }
+    .order-md-1 { order: 1; }
+    .order-md-2 { order: 2; }
+}
+@media (min-width: 1200px) {
+    .col-xl-3 { width: 25%; }
+    .col-xl-4 { width: 33.333333%; }
+    .col-xl-6 { width: 50%; }
+    .col-xl-9 { width: 75%; }
+    .col-xl-12 { width: 100%; }
+}
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+/* El orden de escritorio debe prevalecer sobre el orden móvil. */
+@media (min-width: 768px) {
+    .order-md-1 { order: 1; }
+    .order-md-2 { order: 2; }
+}
+
+/* Diseño original: bloques amarillos y morados. */
+.altura { height: 140px; }
+
+
+section { background:#fffc00; }
+aside { background:#9a0086; }
+section,aside {border:4px solid #000; color:#181818;}
+aside {color:#fff;}
+
+/* Presentación sencilla del contenido dentro de los recuadros. */
+.altura { min-height: 140px; height: auto; padding: 15px; }
+.bloque-titulo { margin: 0 0 7px; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.2; }
+.bloque-texto { margin: 0 0 8px; font-size: 14px; line-height: 1.35; }
+.bloque-ejemplo { display: inline-block; max-width: 100%; padding: 5px 7px; border-radius: 4px; background: rgba(255,255,255,.65); color: #171717; font: 12px/1.4 Consolas, monospace; white-space: normal; overflow-wrap: anywhere; }
+nav,main { color:white; }
+@media (max-width: 767px) { .altura { min-height: 145px; } }
+
+
+/* Ejemplos: una pseudoclase principal por cada recuadro */
+.bloque-demo {margin-top:8px; font-size:12px;}
+.bloque-demo input {max-width:100%;padding:5px;}
+.bloque-demo button {padding:5px;}
+.bloque-demo .muestra {display:inline-block; padding:4px; background:rgba(255,255,255,.25);}
+.bloque-demo .muestra span {display:inline-block;padding:3px;}
+.bloque-demo a {color:inherit;text-decoration:underline;}
+.bloque-demo small {font-size:12px;}
+nav, main, section, aside, footer {min-width:0;}
+.altura {min-height:175px;}
+#ejemplo-1:hover { filter: brightness(1.14); }
+#ejemplo-2:active { outline: 4px solid white; }
+#ejemplo-3:focus { outline: 4px dashed white; }
+#ejemplo-4:focus-visible { outline: 4px solid #0af; }
+#ejemplo-5:focus-within { box-shadow: inset 0 0 0 4px #0af; }
+#ejemplo-6 a:any-link { text-decoration-thickness: 3px; }
+#ejemplo-7 a:link { color: #174bbb; }
+#ejemplo-8 a:visited { color: purple; }
+#ejemplo-9 .muestra > span:first-child { font-weight: 900; text-decoration: underline; }
+#ejemplo-10 .muestra > span:last-child { font-weight: 900; text-decoration: underline; }
+#ejemplo-11 .muestra > span:nth-child(2) { background: #ffe36a; }
+#ejemplo-12 .muestra > span:nth-last-child(2) { background: #ffe36a; }
+#ejemplo-13 .muestra > span:first-of-type { text-decoration: underline; }
+#ejemplo-14 .muestra > span:last-of-type { text-decoration: underline; }
+#ejemplo-15 .muestra > span:nth-of-type(2) { background: #ffe36a; }
+#ejemplo-16 .muestra > span:nth-last-of-type(2) { background: #ffe36a; }
+#ejemplo-17 .muestra > span:only-child { outline: 2px solid; }
+#ejemplo-18 .muestra > strong:only-of-type { text-decoration: underline; }
+#ejemplo-19 .vacio:empty { display: inline-block; background: #ffe36a; width: 45px; height: 19px; }
+:root { --color-demo: #0a5; }
+#ejemplo-21 .muestra > span:not(.excepto) { font-weight: 900; }
+#ejemplo-22 :is(.muestra) { border-bottom: 3px solid; }
+#ejemplo-23 :where(.muestra) { outline: 2px dotted; }
+#ejemplo-24 .muestra:has(input) { outline: 3px solid; }
+#ejemplo-25 input:required { border: 3px solid #065; }
+#ejemplo-26 input:optional { border: 3px solid #065; }
+#ejemplo-27 input:placeholder-shown { background: #ffec9c; }
+#ejemplo-28 input:valid { border: 3px solid green; }
+#ejemplo-29 input:invalid { border: 3px solid crimson; }
+#ejemplo-30 input:user-valid { outline: 3px solid green; }
+#ejemplo-31 input:user-invalid { outline: 3px solid crimson; }
+#ejemplo-32 input:in-range { border: 3px solid green; }
+#ejemplo-33 input:out-of-range { border: 3px solid crimson; }
+#ejemplo-34 input:read-only { background: #ccd5df; }
+#ejemplo-35 input:read-write { border: 3px solid teal; }
+#ejemplo-36 input:checked { accent-color: #065; }
+#ejemplo-37 input:default { outline: 2px solid; }
+#ejemplo-38 button:enabled { border: 3px solid green; }
+#ejemplo-39 button:disabled { opacity: .45; }
+#ejemplo-40 progress:indeterminate { accent-color: orange; }
+#ejemplo-41:target { outline: 4px solid #22aaff; }
+#ejemplo-42 .idioma:lang(es) { text-decoration: underline; }
+#ejemplo-43 details:open { border: 2px solid; }
+#ejemplo-44 [popover]:popover-open { border: 3px solid blue; }
+#ejemplo-45 dialog:modal { border: 3px solid blue; }
+#ejemplo-46:fullscreen { padding: 30px; }
